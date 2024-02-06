@@ -1,9 +1,15 @@
 jobs:
   include:
-    - os: freebsd
-      language: java
+    - os: linux
+      language: python
+      python:
+       - "3.8"
+      cache:
+        bundler: true
+        directories:
+        - node_modules # NPM packages
       arch: amd64
+      dist: focal
       script:
-        - javac hello_world.java
-        - java HelloWorld
+        - python hello_world.py
 
